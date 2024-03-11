@@ -4,7 +4,14 @@ from textblob import TextBlob
 import matplotlib.pyplot as plt
 
 def generate_word_cloud(text):
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+    blob = TextBlob(text)
+    word_frequencies = dict(blob.word_counts)
+
+    if not word_frequencies:
+        st.warning("No words found in the provided text.")
+        return
+
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(word_frequencies)
     
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.imshow(wordcloud, interpolation='bilinear')
