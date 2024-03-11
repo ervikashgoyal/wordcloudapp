@@ -1,4 +1,4 @@
-streamlit==0.89.0
-matplotlib==3.4.3
-wordcloud==1.8.1
-textblob==0.15.3
+streamlit
+matplotlib
+wordcloud
+textblob
